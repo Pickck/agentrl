@@ -2,6 +2,9 @@ source /usr/local/Ascend/ascend-toolkit/set_env.sh
 source /usr/local/Ascend/nnal/atb/set_env.sh
 source /use/local/Ascend/
 
+# agentrl/vllm-ascend/vllm_ascend/utils.py 第985行缓冲区设置
+
+
 export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export ASCEND_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export HCCL_WHITELIST_DISABLE=1
@@ -11,6 +14,7 @@ export RANK=0
 export WORLD_SIZE=8
 export MASTER_ADDR=127.0.0.1
 export MASTER_PORT=29500
+export VLLM_USE_V1=0
 
 python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \

@@ -1,23 +1,13 @@
-import os
-import torch
-import torch.distributed as dist
-import torch_npu
+from vllm import LLM, SamplingParams
 
-dist.init_process_group("hccl")
+# 如果这一步报错，说明 vLLM 根本没安装好 NPU 支持
+llm = LLM(model="/mnt/workspace/models/Qwen2.5-0.5B-Instruct", 
+          # device="npu", 
+          tensor_parallel_size=2) 
 
-local_rank = int(os.environ["LOCAL_RANK"])
+sampling_params = SamplingParams(temperature=0.8, top_p=0.95)
+prompts = ["Hello, how are you?"]
+outputs = llm.generate(prompts, sampling_params)
 
-torch.npu.set_device(local_rank)
-
-print(
-    "rank",
-    dist.get_rank(),
-    "local_rank",
-    local_rank,
-    "device",
-    torch.npu.current_device()
-)
-
-dist.barrier()
-
-print("ok")
+for output in outputs:
+    print(f"Output: {output.outputs[0].text}")
