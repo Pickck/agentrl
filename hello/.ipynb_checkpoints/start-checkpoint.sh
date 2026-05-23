@@ -18,7 +18,7 @@ export WORLD_SIZE=8
 export MASTER_ADDR=127.0.0.1
 export MASTER_PORT=29500
 export VLLM_USE_V1=1
-export VLLM_ATTENTION_BACKEND=XFORMERS
+export VLLM_ATTENTION_BACKEND=FLASH_ATTN
 
 python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
