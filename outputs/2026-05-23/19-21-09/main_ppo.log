@@ -1,0 +1,1 @@
+[2026-05-23 19:21:09,478][verl.utils.device][WARNING] - Detect setting config.trainer.device to cuda for Ascend NPU, maybefrom default value in config file, automatically set to `npu` instead.
