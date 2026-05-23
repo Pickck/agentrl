@@ -1,10 +1,9 @@
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 source /usr/local/Ascend/nnal/atb/set_env.sh
-source /use/local/Ascend/
 
 # agentrl/vllm-ascend/vllm_ascend/utils.py 第985行缓冲区设置
 
-
+export HF_ENDPOINT=https://hf-mirror.com
 export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export ASCEND_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export HCCL_WHITELIST_DISABLE=1
