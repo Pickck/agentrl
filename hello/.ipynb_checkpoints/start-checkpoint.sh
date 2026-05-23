@@ -9,6 +9,7 @@ git config --global user.name "Pickck"
 export HF_ENDPOINT=https://hf-mirror.com
 export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 export ASCEND_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+export TORCH_DISTRIBUTED_BACKEND=hccl
 export HCCL_WHITELIST_DISABLE=1
 export HCCL_CONNECT_TIMEOUT=1800
 export HCCL_EXEC_TIMEOUT=1800
@@ -16,7 +17,8 @@ export RANK=0
 export WORLD_SIZE=8
 export MASTER_ADDR=127.0.0.1
 export MASTER_PORT=29500
-export VLLM_USE_V1=0
+export VLLM_USE_V1=1
+export VLLM_ATTENTION_BACKEND=XFORMERS
 
 python3 -m verl.trainer.main_ppo \
     algorithm.adv_estimator=grpo \
