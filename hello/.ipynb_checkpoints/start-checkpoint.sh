@@ -1,6 +1,9 @@
 source /usr/local/Ascend/ascend-toolkit/set_env.sh
 source /usr/local/Ascend/nnal/atb/set_env.sh
 
+git config --global user.email "2032495969@qq.com"
+git config --global user.name "Pickck"
+
 # agentrl/vllm-ascend/vllm_ascend/utils.py 第985行缓冲区设置
 
 export HF_ENDPOINT=https://hf-mirror.com
